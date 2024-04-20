@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class JobController extends Controller
 {
@@ -37,7 +39,7 @@ class JobController extends Controller
 
         Job::create([
             ...$data,
-            'employer_id' => 1
+            'employer_id' => 1,
         ]);
 
         return redirect('/jobs');
@@ -72,10 +74,10 @@ class JobController extends Controller
         // authorize in later lessons
 
         $job->update([
-            ...$data
+            ...$data,
         ]);
 
-        return redirect('/jobs/' . $job->id);
+        return redirect('/jobs/'.$job->id);
     }
 
     /**
