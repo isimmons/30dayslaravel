@@ -41,9 +41,6 @@ Route::delete('/jobs/{job}', [JobController::class, 'destroy'])
     ->can('delete', 'job');
 
 
-
-
-
 // auth
 Route::get('/register', [RegisteredUserController::class, 'create'])
     ->name('register.create');
